@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#11171a">
+  <title>포트폴리오 디자인 시안 3종 | 주성</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap');
+    :root { --sans:'Noto Sans KR','Malgun Gothic',sans-serif;--mono:'DM Mono',monospace; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:#101719;color:#f0f5f5;margin:0;font-family:var(--sans);word-break:keep-all}
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%;object-fit:cover}
+    .wrap{width:min(calc(100% - 80px),1320px);margin-inline:auto}
+    .overview{padding-top:78px;padding-bottom:57px}
+    .topline{display:flex;align-items:center;justify-content:space-between;gap:15px;font:11px var(--mono);letter-spacing:.13em;color:#adbfbb}
+    .back{display:inline-flex;align-items:center;gap:12px;border:1px solid #5c726d;padding:12px 16px;border-radius:5px;color:#e4f5ef}
+    .back:hover{background:#22312e}
+    h1{font-size:clamp(36px,5vw,70px);line-height:1.17;letter-spacing:-.07em;margin:58px 0 22px}
+    .overview p{max-width:700px;color:#a3b5b1;line-height:1.9;font-size:15px;margin:0}
+    .overview strong{color:#def3e9}
+    .anchors{display:flex;gap:12px;flex-wrap:wrap;margin-top:37px}
+    .anchors a{padding:11px 14px;font:11px var(--mono);border:1px solid #344841;border-radius:3px;color:#d6e6e1}
+    .anchors a:hover{border-color:#a3d7c5;background:#1d2b26}
+    .concept{padding:69px 0 80px;border-top:1px solid #324341}
+    .concept-head{display:grid;grid-template-columns:110px 1fr 300px;gap:20px;align-items:start;margin-bottom:31px}
+    .concept-count{font:12px var(--mono);color:#9ad8c2}
+    .concept-head h2{font-size:clamp(28px,3vw,44px);line-height:1.25;margin:-9px 0 12px;letter-spacing:-.05em}
+    .concept-head p{color:#afbfbb;font-size:13px;line-height:1.9;margin:0}
+    .concept-tag{justify-self:end;border:1px solid #56726b;padding:9px 13px;border-radius:100px;font:10px var(--mono);white-space:nowrap;color:#bddace}
+    .site-sample{border:1px solid #5c6b68;border-radius:12px;overflow:hidden;box-shadow:0 28px 70px #050c0c77}
+    .chrome{height:40px;background:#263333;display:flex;gap:6px;align-items:center;padding:0 16px}
+    .chrome i{width:7px;height:7px;background:#7a9891;border-radius:50%}
+    .chrome span{font:9px var(--mono);margin:auto;color:#bbd0c7;letter-spacing:.07em}
+    .actual{position:relative;overflow:hidden;min-height:640px}
+    .actual img{background:#070a0c}
+    /* 01: Editorial */
+    .editorial{background:#f5f4ef;color:#1b3131;padding:0 48px 45px}
+    .ed-nav{height:80px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ccd5d1}
+    .ed-logo{font:700 15px var(--mono);letter-spacing:-.02em}
+    .ed-logo span{background:#244a48;color:#fff;padding:5px 7px;border-radius:3px;margin-right:10px}
+    .ed-nav small{font:10px var(--mono);color:#55706d}
+    .ed-lead{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:60px;padding-top:76px;padding-bottom:67px}
+    .ed-eyebrow{font:11px var(--mono);color:#5f7f79;letter-spacing:.08em}
+    .ed-lead h3{font-size:clamp(32px,3.6vw,59px);line-height:1.31;letter-spacing:-.075em;margin:22px 0}
+    .ed-lead h3 em{font-style:normal;color:#567e7b}
+    .ed-lead p{color:#526863;font-size:13px;line-height:1.95;margin:0 0 25px;max-width:360px}
+    .ed-arrow{font:11px var(--mono);display:inline-flex;gap:14px;border-bottom:1px solid #48736e;padding-bottom:10px}
+    .ed-picture{border:8px solid #fff;box-shadow:0 24px 34px #26433b22;position:relative}
+    .ed-picture img{aspect-ratio:16/11;object-fit:cover}
+    .ed-picture label{position:absolute;bottom:14px;left:14px;background:#fff;padding:9px 12px;color:#264a46;font:10px var(--mono)}
+    .ed-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #a6b6af}
+    .ed-grid div{padding:19px 16px 0;border-right:1px solid #c9d4cd}
+    .ed-grid div:first-child{padding-left:0}
+    .ed-grid div:last-child{border-right:0}
+    .ed-grid small{display:block;font:10px var(--mono);color:#6a8b86;margin-bottom:9px}
+    .ed-grid strong{font-size:15px}
+    /* 02: Engineering */
+    .lab{background:#101c23;color:#e9f2f2;min-height:670px;display:grid;grid-template-columns:150px 1fr}
+    .lab-rail{background:#0c151a;border-right:1px solid #2a4148;padding:30px 17px;display:flex;flex-direction:column;gap:38px}
+    .lab-mark{font:700 19px var(--mono);color:#bce4d7}
+    .lab-rail small{font:10px/2 var(--mono);color:#93aaa9}
+    .lab-rail a{color:#99d8cc;font:10px/2 var(--mono)}
+    .lab-rail footer{margin-top:auto;color:#607d7c;font:9px var(--mono)}
+    .lab-main{position:relative;background-image:radial-gradient(#39606855 1px,transparent 1px);background-size:21px 21px;padding:38px 43px 30px}
+    .lab-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:35px;font:10px var(--mono);color:#8fa9a9}
+    .lab-top b{color:#abd9cb;font-weight:500;border:1px solid #50756d;padding:8px 10px}
+    .lab-content{display:grid;grid-template-columns:.85fr 1.15fr;gap:25px;align-items:center}
+    .lab-eyebrow{color:#9ad7c5;font:11px var(--mono);letter-spacing:.12em}
+    .lab-content h3{font-size:clamp(29px,3.25vw,51px);letter-spacing:-.065em;line-height:1.3;margin:24px 0}
+    .lab-content h3 span{color:#a4ddcf}
+    .lab-content p{color:#9eb1b3;font-size:12px;line-height:1.9}
+    .lab-media{border:1px solid #568078;background:#15232a;padding:10px;position:relative}
+    .lab-media::before,.lab-media::after{content:'+';position:absolute;color:#94cbbd;font:20px var(--mono);z-index:1}
+    .lab-media::before{top:-12px;left:-8px}.lab-media::after{bottom:-12px;right:-8px}
+    .lab-media img{aspect-ratio:16/10;object-fit:contain}
+    .lab-media-tag{position:absolute;top:18px;left:18px;background:#122228e3;color:#b1ded2;font:9px var(--mono);padding:8px}
+    .lab-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:33px}
+    .lab-bottom div{border:1px solid #2b4e52;background:#0c1b21e8;padding:18px 14px}
+    .lab-bottom span{font:10px var(--mono);color:#83a5a5}
+    .lab-bottom strong{display:block;font-size:15px;margin-top:12px;font-weight:500}
+    /* 03: graphic poster */
+    .poster{background:#edece6;color:#212420;min-height:650px}
+    .post-top{height:69px;border-bottom:2px solid #252923;display:flex;align-items:center;justify-content:space-between;padding:0 42px;font:11px var(--mono)}
+    .post-top strong{font-weight:500;letter-spacing:.07em}
+    .post-hero{display:grid;grid-template-columns:1fr .92fr;min-height:460px}
+    .post-copy{padding:46px 16px 30px 42px;position:relative}
+    .post-number{font:13px var(--mono);color:#bd6047;letter-spacing:.08em}
+    .post-copy h3{font-size:clamp(43px,6.3vw,96px);line-height:1.08;letter-spacing:-.095em;font-weight:900;margin:43px 0 19px}
+    .post-copy h3 span{color:#e96943}
+    .post-copy p{font-size:13px;max-width:360px;line-height:1.9;color:#555e53}
+    .post-media{background:#e96943;padding:25px;position:relative;display:flex;align-items:center}
+    .post-media img{aspect-ratio:4/5;object-fit:cover;filter:saturate(.76) contrast(1.08)}
+    .post-media:after{content:'GRAPHICS / SIMULATION';position:absolute;right:36px;bottom:39px;color:#fff;font:11px var(--mono);letter-spacing:.08em;text-shadow:0 1px 5px #222}
+    .post-footer{display:grid;grid-template-columns:repeat(3,1fr);padding:0 42px 27px;gap:30px}
+    .post-footer div{border-top:2px solid #242622;padding-top:13px}
+    .post-footer small{font:10px var(--mono);color:#c16448;display:block;margin-bottom:8px}
+    .post-footer strong{font-size:13px}
+    .pagefoot{padding:35px 0 60px;border-top:1px solid #324341;color:#93aaa4;font-size:12px;line-height:1.9}
+    @media(max-width:1020px){
+      .wrap{width:calc(100% - 42px)}.concept-head{grid-template-columns:60px 1fr}.concept-tag{grid-column:2;justify-self:start}
+      .ed-lead{gap:30px}.editorial{padding-inline:28px}.lab-main{padding:24px}.lab{grid-template-columns:110px 1fr}
+    }
+    @media(max-width:700px){
+      .wrap{width:calc(100% - 28px)}.overview{padding-top:35px}.overview h1{margin-top:36px}.topline{align-items:flex-start;gap:20px}
+      .concept{padding-block:43px}.concept-head{grid-template-columns:1fr;gap:12px}.concept-tag{grid-column:1}.site-sample{border-radius:7px}
+      .actual{min-height:0}.editorial{padding:0 17px 22px}.ed-nav{height:54px}.ed-nav small{font-size:7px}
+      .ed-lead{grid-template-columns:1fr;padding-block:32px;gap:29px}.ed-lead h3{font-size:39px;margin:14px 0}.ed-grid{gap:5px}.ed-grid div{padding-inline:7px}.ed-grid strong{font-size:10px}
+      .lab{grid-template-columns:1fr}.lab-rail{display:none}.lab-content{grid-template-columns:1fr}.lab-main{padding:21px}
+      .lab-top{margin-bottom:15px}.lab-content h3{margin:14px 0;font-size:33px}.lab-bottom{gap:6px}.lab-bottom div{padding:11px 7px}.lab-bottom strong{font-size:10px}
+      .post-top{padding-inline:17px;font-size:8px;height:47px}.post-hero{grid-template-columns:1fr}.post-copy{padding:27px 17px}
+      .post-copy h3{font-size:55px;margin:23px 0}.post-media{padding:20px}.post-media img{aspect-ratio:16/9}
+      .post-footer{padding:10px 17px 24px;gap:8px}.post-footer strong{font-size:10px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="overview wrap">
+    <div class="topline"><span>JS / DESIGN EXPLORATIONS · 2026</span><a class="back" href="index.html">← 현재 포트폴리오</a></div>
+    <h1>같은 작업을,<br>세 가지 분위기로.</h1>
+    <p>실제 영상·GIF 자료를 활용해 기존 구성의 디자인만 바꿔 본 <strong>시각 시안</strong>이야. 아래 세 가지는 별도의 후보이며, 현재 포트폴리오의 구성과 배포본은 그대로 유지돼.</p>
+    <nav class="anchors" aria-label="시안 바로가기"><a href="#editorial">01 · 조용한 에디토리얼</a><a href="#lab">02 · 정밀한 테크 스튜디오</a><a href="#poster">03 · 강한 타이포그래피</a></nav>
+  </header>
+
+  <section class="concept wrap" id="editorial">
+    <div class="concept-head"><span class="concept-count">CONCEPT / 01</span><div><h2>조용한 에디토리얼</h2><p>여백이 넓은 아이보리 바탕, 낮은 채도의 청록, 단정한 이미지 중심 구성. 작업의 기술성과 디자인 감각을 함께 보여주는 방향.</p></div><span class="concept-tag">추천 · 가장 균형적인 대안</span></div>
+    <div class="site-sample"><div class="chrome"><i></i><i></i><i></i><span>PORTFOLIO / LIGHT EDITORIAL</span></div>
+      <div class="actual editorial">
+        <div class="ed-nav"><div class="ed-logo"><span>JS</span> GRAPHICS</div><small>WORKS &nbsp; / &nbsp; ABOUT &nbsp; / &nbsp; CONTACT</small></div>
+        <div class="ed-lead">
+          <div><span class="ed-eyebrow">01 — VISUAL COMPUTING</span><h3>움직임을<br>이해하고,<br><em>구현합니다.</em></h3><p>게임 그래픽스, 물리 시뮬레이션, 제작 도구. 결과를 먼저 보여주고 구현 과정을 짧게 설명합니다.</p><span class="ed-arrow">프로젝트 살펴보기 <b>↗</b></span></div>
+          <div class="ed-picture"><img src="assets/archer3_loop.gif" alt="라디얼 블러 적용 게임 플레이 자료"><label>SELECTED WORK / 01</label></div>
+        </div>
+        <div class="ed-grid"><div><small>01 / PARTICLE</small><strong>입자 시스템 · 도구</strong></div><div><small>02 / SIMULATION</small><strong>보간 · 자체 물리 엔진</strong></div><div><small>03 / RENDERING</small><strong>셰이더 · 지형</strong></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="concept wrap" id="lab">
+    <div class="concept-head"><span class="concept-count">CONCEPT / 02</span><div><h2>정밀한 테크 스튜디오</h2><p>현 사이트의 짙은 색감을 유지하되, 눈금·좌표·패널 등 기술적 그래픽 요소를 강화. 그래픽스 프로그래머로서의 인상이 가장 선명한 방향.</p></div><span class="concept-tag">현재 취향과 가까움</span></div>
+    <div class="site-sample"><div class="chrome"><i></i><i></i><i></i><span>PORTFOLIO / TECH LAB</span></div>
+      <div class="actual lab">
+        <aside class="lab-rail"><div class="lab-mark">JS<span style="color:#638982">.</span></div><small>GRAPHICS<br>PORTFOLIO</small><a href="#lab">01. PARTICLES</a><a href="#lab">02. DYNAMICS</a><a href="#lab">03. SHADERS</a><a href="#lab">04. TERRAIN</a><footer>© 2026<br>JUSUNG</footer></aside>
+        <div class="lab-main">
+          <div class="lab-top"><span>GRAPHICS R&D / REAL-TIME</span><b>● SELECTED WORK</b></div>
+          <div class="lab-content">
+            <div><span class="lab-eyebrow">SYSTEMS / VISUAL COMPUTING</span><h3>눈에 보이는<br><span>수학과 물리.</span></h3><p>파티클의 방출·이동부터 자체 물리 엔진과 렌더링까지.</p></div>
+            <div class="lab-media"><img src="assets/blade_effect_comparison.png" alt="섭스텝과 관성에 따른 검기 이펙트 비교 인포그래픽"><span class="lab-media-tag">FIG 01 / PARTICLE PATH</span></div>
+          </div>
+          <div class="lab-bottom"><div><span>01 / SYSTEM</span><strong>PARTICLE TOOLS</strong></div><div><span>02 / DYNAMICS</span><strong>NEWTONIAN PHYSICS</strong></div><div><span>03 / RENDERING</span><strong>SHADER + TERRAIN</strong></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="concept wrap" id="poster">
+    <div class="concept-head"><span class="concept-count">CONCEPT / 03</span><div><h2>그래픽 포스터</h2><p>강한 대형 타이포그래피, 주황색 포인트, 비대칭 분할. 한 번에 시선을 끌지만 기술 자료가 많은 페이지에서는 밀도를 조절해야 하는 방향.</p></div><span class="concept-tag">조금 다른 느낌 · 실험적</span></div>
+    <div class="site-sample"><div class="chrome"><i></i><i></i><i></i><span>PORTFOLIO / GRAPHIC POSTER</span></div>
+      <div class="actual poster">
+        <div class="post-top"><strong>JUSUNG / PORTFOLIO</strong><span>GRAPHICS &nbsp; • &nbsp; SIMULATION</span></div>
+        <div class="post-hero"><div class="post-copy"><span class="post-number">NO. 01 / SELECTED WORK</span><h3>MOTION<br>IS <span>MATH.</span></h3><p>움직임을 수학으로 해석하고 실시간 화면 위에 구현하는 클라이언트 그래픽스.</p></div><div class="post-media"><img src="assets/archer3_loop.gif" alt="그래픽스 이펙트 게임 플레이 시연"></div></div>
+        <div class="post-footer"><div><small>01</small><strong>PARTICLE SYSTEM</strong></div><div><small>02</small><strong>PHYSICS ENGINE</strong></div><div><small>03</small><strong>SHADER & TERRAIN</strong></div></div>
+      </div>
+    </div>
+  </section>
+  <footer class="pagefoot wrap">이 페이지는 시안 비교용이야. 실제 포트폴리오 내용과 영상 배치는 <a href="index.html" style="color:#a4ddca;text-decoration:underline;text-underline-offset:3px">현재 버전</a>에 유지돼.</footer>
+</body>
+</html>
